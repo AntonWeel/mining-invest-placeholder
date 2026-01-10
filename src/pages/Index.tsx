@@ -20,23 +20,23 @@ const Index = () => {
   const advantages = [
     {
       icon: 'Server',
-      title: 'Профессиональное оборудование',
-      description: 'ASIC-майнеры последнего поколения с максимальной эффективностью'
+      title: 'Professional Equipment',
+      description: 'Latest generation ASIC miners with maximum efficiency'
     },
     {
       icon: 'Shield',
-      title: 'Надёжность и безопасность',
-      description: 'Защищённая инфраструктура с резервированием питания и охлаждения'
+      title: 'Reliability & Security',
+      description: 'Protected infrastructure with redundant power and cooling systems'
     },
     {
       icon: 'DollarSign',
-      title: 'Прозрачная экономика',
-      description: 'Детальная отчётность и прогнозируемая доходность'
+      title: 'Transparent Economics',
+      description: 'Detailed reporting and predictable profitability'
     },
     {
       icon: 'Headphones',
-      title: 'Техническая поддержка',
-      description: 'Команда экспертов обеспечивает бесперебойную работу'
+      title: 'Technical Support',
+      description: 'Expert team ensures uninterrupted operations'
     }
   ];
 
@@ -64,30 +64,30 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/20 animate-gradient-shift bg-[length:200%_200%]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 animate-gradient-shift bg-[length:200%_200%]" />
         
         <div className="relative">
           <section className="min-h-screen flex items-center justify-center px-4 py-20">
             <div className={`max-w-6xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="inline-block mb-6 px-4 py-2 bg-primary/10 rounded-full border border-primary/30">
-                <span className="text-sm font-medium text-primary">Инвестиции в будущее</span>
+              <div className="inline-block mb-6 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+                <span className="text-sm font-medium text-primary">Invest in the Future</span>
               </div>
               
               <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
-                Майнинг-производство <br />нового поколения
+                Next-Generation <br />Mining Operations
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-                Профессиональная инфраструктура для криптовалютного майнинга с гарантированной доходностью
+                Professional cryptocurrency mining infrastructure with guaranteed returns
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
                 <Button size="lg" className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 group">
-                  Стать инвестором
+                  Become an Investor
                   <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/10">
-                  Подробнее о проекте
+                  Learn More
                 </Button>
               </div>
               
@@ -95,7 +95,7 @@ const Index = () => {
                 {stats.map((stat, index) => (
                   <div 
                     key={index}
-                    className={`p-6 rounded-2xl bg-card border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+                    className={`p-6 rounded-2xl bg-card border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <Icon name={stat.icon as any} className="w-8 h-8 text-primary mx-auto mb-3 animate-float" />
@@ -107,14 +107,14 @@ const Index = () => {
             </div>
           </section>
 
-          <section className="py-20 px-4 bg-card/50 backdrop-blur-sm">
+          <section className="py-20 px-4 bg-muted/30">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-                  О проекте
+                  About the Project
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Мы создали современную инфраструктуру для майнинга криптовалют с фокусом на надёжность, эффективность и прозрачность
+                  We've built modern infrastructure for cryptocurrency mining focused on reliability, efficiency and transparency
                 </p>
               </div>
               
@@ -122,7 +122,7 @@ const Index = () => {
                 {advantages.map((advantage, index) => (
                   <Card 
                     key={index}
-                    className="p-8 bg-background/50 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105 group"
+                    className="p-8 bg-card border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105 group shadow-sm hover:shadow-md"
                   >
                     <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                       <Icon name={advantage.icon as any} className="w-7 h-7 text-primary" />
@@ -139,10 +139,10 @@ const Index = () => {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-                  Технология и оборудование
+                  Technology & Equipment
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Используем передовое оборудование с оптимальным соотношением производительности и энергоэффективности
+                  Using cutting-edge equipment with optimal performance-to-efficiency ratio
                 </p>
               </div>
               
@@ -150,10 +150,10 @@ const Index = () => {
                 {equipment.map((item, index) => (
                   <Card 
                     key={index}
-                    className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105"
+                    className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center justify-center mb-6">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
                         <Icon name="Cpu" className="w-8 h-8 text-white" />
                       </div>
                     </div>
@@ -164,11 +164,11 @@ const Index = () => {
                         <span className="font-semibold text-primary">{item.hashrate}</span>
                       </div>
                       <div className="flex justify-between items-center pb-2 border-b border-border">
-                        <span className="text-muted-foreground">Мощность</span>
+                        <span className="text-muted-foreground">Power</span>
                         <span className="font-semibold">{item.power}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-muted-foreground">Эффективность</span>
+                        <span className="text-muted-foreground">Efficiency</span>
                         <span className="font-semibold text-secondary">{item.efficiency}</span>
                       </div>
                     </div>
@@ -177,15 +177,15 @@ const Index = () => {
               </div>
               
               <div className="mt-16 text-center">
-                <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30">
+                <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30 shadow-lg">
                   <h3 className="font-heading text-3xl font-bold mb-4">
-                    Готовы присоединиться?
+                    Ready to Join?
                   </h3>
                   <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                    Начните инвестировать в майнинг-производство уже сегодня и получайте стабильный доход
+                    Start investing in mining operations today and receive stable returns
                   </p>
                   <Button size="lg" className="text-lg px-10 py-6 bg-primary hover:bg-primary/90">
-                    Связаться с нами
+                    Contact Us
                     <Icon name="MessageCircle" className="ml-2" />
                   </Button>
                 </Card>
