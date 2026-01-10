@@ -45,19 +45,22 @@ const Index = () => {
       name: 'Antminer S19 Pro',
       hashrate: '110 TH/s',
       power: '3250W',
-      efficiency: '29.5 J/TH'
+      efficiency: '29.5 J/TH',
+      image: 'https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/238b9a60-e14d-45ac-a987-83eee9607c70.jpg'
     },
     {
       name: 'Whatsminer M30S++',
       hashrate: '112 TH/s',
       power: '3472W',
-      efficiency: '31 J/TH'
+      efficiency: '31 J/TH',
+      image: 'https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/bd5ccd2c-5b7b-4a4e-bafa-2f82f734cb3d.jpg'
     },
     {
       name: 'AvalonMiner 1246',
       hashrate: '90 TH/s',
       power: '3420W',
-      efficiency: '38 J/TH'
+      efficiency: '38 J/TH',
+      image: 'https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/4793f4f3-b2c3-4115-abbc-05b2ea06aa7c.jpg'
     }
   ];
 
@@ -150,12 +153,14 @@ const Index = () => {
                 {equipment.map((item, index) => (
                   <Card 
                     key={index}
-                    className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md"
+                    className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md overflow-hidden"
                   >
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
-                        <Icon name="Cpu" className="w-8 h-8 text-white" />
-                      </div>
+                    <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden bg-muted/50">
+                      <img 
+                        src={item.image} 
+                        alt={item.name}
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                      />
                     </div>
                     <h3 className="font-heading text-xl font-semibold mb-4 text-center">{item.name}</h3>
                     <div className="space-y-3">
