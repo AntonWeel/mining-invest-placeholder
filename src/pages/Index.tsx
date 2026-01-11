@@ -70,12 +70,13 @@ const Index = () => {
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 animate-gradient-shift bg-[length:200%_200%]" />
         <div 
-          className="absolute inset-0 opacity-20"
+          className="fixed inset-0 opacity-40"
           style={{
             backgroundImage: 'url(https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/5df7f734-6c4c-4181-b84d-6c245f34b55f.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed'
           }}
         />
         
