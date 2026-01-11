@@ -87,7 +87,7 @@ const Index = () => {
         
         <div className="relative">
           <section className="min-h-screen flex items-center justify-center px-4 py-20">
-            <div className={`max-w-6xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`max-w-6xl mx-auto text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="mb-6">
                 <a 
                   href="https://forms.gle/JvG4uViTWvKkMLfn6" 
@@ -101,7 +101,7 @@ const Index = () => {
               
               <div className="relative inline-block mb-6 px-8 py-6 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary/30">
                 <div className="absolute inset-0 opacity-30 overflow-hidden rounded-3xl">
-                  <PulsingChart />
+                  {isVisible && <PulsingChart />}
                 </div>
                 <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight relative z-10" style={{ textShadow: '2px 2px 0 rgba(124, 58, 237, 0.3), 4px 4px 0 rgba(124, 58, 237, 0.2), 6px 6px 0 rgba(124, 58, 237, 0.1), 8px 8px 20px rgba(0, 255, 255, 0.3)' }}>
                   Next-Generation<br />Mining

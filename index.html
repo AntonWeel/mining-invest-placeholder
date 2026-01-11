@@ -7,6 +7,9 @@
     <meta name="description" content="Start investing in mining!">
     <meta name="author" content="poehali.dev"/>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.poehali.dev">
     <meta property="og:title" content="Profitable mining | 2026">
     <meta property="og:description" content="Start investing in mining!">
     <meta property="og:image:width" content="4800">
@@ -29,6 +32,34 @@
 
 <body>
 <div id="root"></div>
+<style>
+  /* Critical CSS для мгновенной отрисовки заголовка */
+  .font-heading {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .bg-gradient-to-r {
+    background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  }
+  .from-primary {
+    --tw-gradient-from: hsl(263, 70%, 50%);
+    --tw-gradient-to: transparent;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  .via-secondary {
+    --tw-gradient-via: hsl(180, 100%, 50%);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to);
+  }
+  .to-primary {
+    --tw-gradient-to: hsl(263, 70%, 50%);
+  }
+  .bg-clip-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  .text-transparent {
+    color: transparent;
+  }
+</style>
 <script type="module" src="/src/main.tsx"></script>
 
 <!-- Yandex.Metrika counter -->
