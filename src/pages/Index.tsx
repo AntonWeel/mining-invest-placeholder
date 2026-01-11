@@ -117,10 +117,10 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
                 <Button 
                   size="lg" 
-                  className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 group"
+                  className="text-lg px-8 py-6 bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_200%] hover:bg-[position:100%_0] transition-all duration-500 neon-button font-bold tracking-wide border-2 border-primary/50 hover:scale-110 group"
                   asChild
                 >
-                  <a href="https://forms.gle/JvG4uViTWvKkMLfn6" target="_blank" rel="noopener noreferrer">
+                  <a href="https://forms.gle/JvG4uViTWvKkMLfn6" target="_blank" rel="noopener noreferrer" className="flex items-center">
                     Become an Investor
                     <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </a>
