@@ -7,9 +7,15 @@ import MatrixBackground from '@/components/MatrixBackground';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
+    setIsMobile(window.innerWidth < 768);
+    
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const stats = [
@@ -74,16 +80,19 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 animate-gradient-shift bg-[length:200%_200%]" />
-        <div 
-          className="fixed inset-0 opacity-50 brightness-125"
-          style={{
-            backgroundImage: 'url(https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/0d74685c-e740-4220-9538-533abcc5d689.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundAttachment: 'fixed'
-          }}
-        />
+        {!isMobile && (
+          <div 
+            className="fixed inset-0 opacity-50 brightness-125"
+            style={{
+              backgroundImage: 'url(https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/0d74685c-e740-4220-9538-533abcc5d689.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundAttachment: 'fixed',
+              willChange: 'transform'
+            }}
+          />
+        )}
         
         <div className="relative">
           <section className="min-h-screen flex items-center justify-center px-4 py-20">
@@ -166,6 +175,8 @@ const Index = () => {
                       <img 
                         src={advantage.image} 
                         alt={advantage.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       <div className="absolute top-4 left-4 w-14 h-14 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
@@ -208,11 +219,13 @@ const Index = () => {
                     key={index}
                     className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md overflow-hidden relative"
                   >
-                    <MatrixBackground />
+                    {!isMobile && <MatrixBackground />}
                     <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden bg-muted/50 z-10">
                       <img 
                         src={item.image} 
                         alt={item.name}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                       />
                     </div>
