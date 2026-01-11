@@ -88,14 +88,14 @@ const Index = () => {
                 <span className="text-sm font-medium text-primary">Invest in the Future</span>
               </div>
               
-              <div className="relative inline-block mb-6 px-8 py-6 bg-black/60 backdrop-blur-sm rounded-3xl border border-primary/30">
+              <div className="relative inline-block mb-6 px-8 py-6 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary/30">
                 <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight drop-shadow-[0_0_30px_rgba(0,255,255,0.3)]">
                   Next-Generation <br />Mining Operations
                 </h1>
               </div>
               
-              <div className="inline-block px-6 py-3 bg-black/50 backdrop-blur-sm rounded-2xl border border-primary/20 mb-12">
-                <p className="text-xl md:text-2xl text-white">
+              <div className="inline-block px-6 py-3 bg-white/80 backdrop-blur-sm rounded-2xl border border-primary/20 mb-12">
+                <p className="text-xl md:text-2xl text-foreground">
                   Professional cryptocurrency mining infrastructure with guaranteed returns
                 </p>
               </div>
@@ -135,13 +135,13 @@ const Index = () => {
           <section className="py-20 px-4 bg-muted/30">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
-                <div className="inline-block px-8 py-4 bg-black/50 backdrop-blur-sm rounded-2xl border border-primary/20 mb-4">
+                <div className="inline-block px-8 py-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-primary/20 mb-4">
                   <h2 className="font-heading text-4xl md:text-5xl font-bold">
                     About the Project
                   </h2>
                 </div>
-                <div className="inline-block px-6 py-3 bg-black/50 backdrop-blur-sm rounded-2xl border border-primary/20 mt-4">
-                  <p className="text-xl text-white max-w-3xl">
+                <div className="inline-block px-6 py-3 bg-white/80 backdrop-blur-sm rounded-2xl border border-primary/20 mt-4">
+                  <p className="text-xl text-foreground max-w-3xl">
                     We've built modern infrastructure for cryptocurrency mining focused on reliability, efficiency and transparency
                   </p>
                 </div>
@@ -171,7 +171,7 @@ const Index = () => {
               </div>
               
               <div className="text-center mb-16">
-                <div className="inline-block px-8 py-4 bg-black/50 backdrop-blur-sm rounded-2xl border border-primary/20 mb-4">
+                <div className="inline-block px-8 py-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-primary/20 mb-4">
                   <div className="flex items-center justify-center gap-4">
                     <Icon name="Fan" size={48} className="text-primary animate-spin" style={{ animationDuration: '2s' }} />
                     <h2 className="font-heading text-4xl md:text-5xl font-bold">
@@ -179,8 +179,8 @@ const Index = () => {
                     </h2>
                   </div>
                 </div>
-                <div className="inline-block px-6 py-3 bg-black/50 backdrop-blur-sm rounded-2xl border border-primary/20 mt-4">
-                  <p className="text-xl text-white max-w-3xl">
+                <div className="inline-block px-6 py-3 bg-white/80 backdrop-blur-sm rounded-2xl border border-primary/20 mt-4">
+                  <p className="text-xl text-foreground max-w-3xl">
                     Using cutting-edge equipment with optimal performance-to-efficiency ratio
                   </p>
                 </div>
