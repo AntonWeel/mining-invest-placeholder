@@ -12,6 +12,7 @@ const Counter = () => {
   const [ethereum, setEthereum] = useState<CryptoData | null>(null);
   const [dogecoin, setDogecoin] = useState<CryptoData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const fetchCryptoPrices = async () => {
@@ -44,8 +45,16 @@ const Counter = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const CryptoCard = ({ name, icon, data, iconColor }: { name: string; icon: string; data: CryptoData | null; iconColor: string }) => (
-    <Card className="p-6 bg-card border-primary/20">
+  useEffect(() => {
+    const blinkInterval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % 3);
+    }, 1000);
+
+    return () => clearInterval(blinkInterval);
+  }, []);
+
+  const CryptoCard = ({ name, icon, data, iconColor, isActive }: { name: string; icon: string; data: CryptoData | null; iconColor: string; isActive: boolean }) => (
+    <Card className={`p-6 bg-card border-primary/20 transition-all duration-300 ${isActive ? 'scale-105 shadow-lg border-secondary/60' : ''}`}>
       <div className="text-center space-y-4">
         <div className="flex items-center justify-center gap-2">
           <Icon name={icon as any} size={24} className={iconColor} />
@@ -56,7 +65,7 @@ const Counter = () => {
           <div className="text-lg text-muted-foreground">Загрузка...</div>
         ) : (
           <>
-            <div className="text-3xl font-bold text-primary">
+            <div className={`text-3xl font-bold transition-all duration-300 ${isActive ? 'text-secondary scale-110' : 'text-primary'}`}>
               ${data.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 6 })}
             </div>
 
@@ -75,9 +84,9 @@ const Counter = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <CryptoCard name="Bitcoin" icon="Bitcoin" data={bitcoin} iconColor="text-orange-500" />
-        <CryptoCard name="Ethereum" icon="Sparkles" data={ethereum} iconColor="text-purple-500" />
-        <CryptoCard name="Dogecoin" icon="Dog" data={dogecoin} iconColor="text-yellow-500" />
+        <CryptoCard name="Bitcoin" icon="Bitcoin" data={bitcoin} iconColor="text-orange-500" isActive={activeIndex === 0} />
+        <CryptoCard name="Ethereum" icon="Sparkles" data={ethereum} iconColor="text-purple-500" isActive={activeIndex === 1} />
+        <CryptoCard name="Dogecoin" icon="Dog" data={dogecoin} iconColor="text-yellow-500" isActive={activeIndex === 2} />
       </div>
       <p className="text-center text-sm text-muted-foreground mt-4">Обновление каждые 5 секунд</p>
     </div>
