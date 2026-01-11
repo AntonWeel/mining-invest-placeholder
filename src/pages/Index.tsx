@@ -88,14 +88,16 @@ const Index = () => {
         <div className="relative">
           <section className="min-h-screen flex items-center justify-center px-4 py-20">
             <div className={`max-w-6xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <a 
-                href="https://forms.gle/JvG4uViTWvKkMLfn6" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-block mb-6 px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-full border-2 border-primary shadow-lg hover:shadow-2xl transition-all cursor-pointer pulse-badge"
-              >
-                <span className="text-base font-bold text-white tracking-wide">⚡ Invest in the Future</span>
-              </a>
+              <div className="mb-6">
+                <a 
+                  href="https://forms.gle/JvG4uViTWvKkMLfn6" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-full border-2 border-primary shadow-lg hover:shadow-2xl transition-all cursor-pointer pulse-badge"
+                >
+                  <span className="text-base font-bold text-white tracking-wide">⚡ Invest in the Future</span>
+                </a>
+              </div>
               
               <div className="relative inline-block mb-6 px-8 py-6 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary/30">
                 <div className="absolute inset-0 opacity-30 overflow-hidden rounded-3xl">
