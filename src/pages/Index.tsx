@@ -204,9 +204,15 @@ const Index = () => {
                   <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                     Start investing in mining operations today and receive stable returns
                   </p>
-                  <Button size="lg" className="text-lg px-10 py-6 bg-primary hover:bg-primary/90">
-                    Contact Us
-                    <Icon name="MessageCircle" className="ml-2" />
+                  <Button 
+                    size="lg" 
+                    className="text-lg px-10 py-6 bg-primary hover:bg-primary/90"
+                    asChild
+                  >
+                    <a href="https://forms.gle/JvG4uViTWvKkMLfn6" target="_blank" rel="noopener noreferrer">
+                      Get Your Rewards
+                      <Icon name="Gift" className="ml-2" />
+                    </a>
                   </Button>
                 </Card>
               </div>
