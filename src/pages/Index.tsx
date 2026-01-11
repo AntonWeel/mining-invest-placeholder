@@ -214,12 +214,13 @@ const Index = () => {
                   </p>
                   <Button 
                     size="lg" 
-                    className="text-lg px-10 py-6 bg-primary hover:bg-primary/90"
+                    className="text-lg px-10 py-6 bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_200%] hover:bg-[position:100%_0] transition-all duration-500 neon-button font-bold tracking-wide border-2 border-primary/50 hover:scale-105 group"
                     asChild
                   >
-                    <a href="https://forms.gle/JvG4uViTWvKkMLfn6" target="_blank" rel="noopener noreferrer">
+                    <a href="https://forms.gle/JvG4uViTWvKkMLfn6" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                      <Icon name="Sparkles" className="mr-2 group-hover:rotate-12 transition-transform" />
                       Get Your Rewards
-                      <Icon name="Gift" className="ml-2" />
+                      <Icon name="Gift" className="ml-2 group-hover:scale-110 transition-transform" />
                     </a>
                   </Button>
                 </Card>
