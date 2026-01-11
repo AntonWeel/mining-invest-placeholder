@@ -94,9 +94,15 @@ const Index = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                <Button size="lg" className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 group">
-                  Become an Investor
-                  <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <Button 
+                  size="lg" 
+                  className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 group"
+                  asChild
+                >
+                  <a href="https://forms.gle/JvG4uViTWvKkMLfn6" target="_blank" rel="noopener noreferrer">
+                    Become an Investor
+                    <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </Button>
                 <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/10">
                   Learn More
