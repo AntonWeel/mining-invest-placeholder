@@ -6,6 +6,7 @@ import Counter from '@/components/Counter';
 import MatrixBackground from '@/components/MatrixBackground';
 import ServerGlow from '@/components/ServerGlow';
 import BitcoinHashrate from '@/components/BitcoinHashrate';
+import PulsingChart from '@/components/PulsingChart';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -97,7 +98,10 @@ const Index = () => {
               </a>
               
               <div className="relative inline-block mb-6 px-8 py-6 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary/30">
-                <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight drop-shadow-[0_0_30px_rgba(0,255,255,0.3)]">
+                <div className="absolute inset-0 opacity-30 overflow-hidden rounded-3xl">
+                  <PulsingChart />
+                </div>
+                <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight drop-shadow-[0_0_30px_rgba(0,255,255,0.3)] relative z-10">
                   Next-Generation<br />Mining
                 </h1>
               </div>
