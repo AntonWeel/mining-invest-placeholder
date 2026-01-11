@@ -222,15 +222,15 @@ const Index = () => {
                     <div className="space-y-3 relative z-10">
                       <div className="flex justify-between items-center pb-2 border-b border-border">
                         <span className="text-white">Hashrate</span>
-                        <span className="font-semibold text-white">{item.hashrate}</span>
+                        <span className="font-semibold text-cyan-400">{item.hashrate}</span>
                       </div>
                       <div className="flex justify-between items-center pb-2 border-b border-border">
                         <span className="text-white">Power</span>
-                        <span className="font-semibold text-white">{item.power}</span>
+                        <span className="font-semibold text-purple-400">{item.power}</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-white">Efficiency</span>
-                        <span className="font-semibold text-white">{item.efficiency}</span>
+                        <span className="font-semibold text-green-400">{item.efficiency}</span>
                       </div>
                     </div>
                   </Card>
