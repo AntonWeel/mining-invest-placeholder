@@ -137,7 +137,7 @@ const Index = () => {
                 {stats.map((stat, index) => (
                   <div 
                     key={index}
-                    className={`p-6 rounded-2xl bg-card border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+                    className={`p-6 rounded-2xl bg-card border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md stat-card-${index} ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <Icon name={stat.icon as any} className="w-8 h-8 text-primary mx-auto mb-3 animate-float" />
