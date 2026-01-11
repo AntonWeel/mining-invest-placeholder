@@ -148,4 +148,8 @@
       neon-pulse 2s ease-in-out infinite,
       pulse-scale 2s ease-in-out infinite;
   }
+
+  .pulse-badge {
+    animation: pulse-scale 2s ease-in-out infinite;
+  }
 }

@@ -84,9 +84,14 @@ const Index = () => {
         <div className="relative">
           <section className="min-h-screen flex items-center justify-center px-4 py-20">
             <div className={`max-w-6xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="inline-block mb-6 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
-                <span className="text-sm font-medium text-primary">Invest in the Future</span>
-              </div>
+              <a 
+                href="https://forms.gle/JvG4uViTWvKkMLfn6" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block mb-6 px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-full border-2 border-primary shadow-lg hover:shadow-2xl transition-all cursor-pointer pulse-badge"
+              >
+                <span className="text-base font-bold text-white tracking-wide">⚡ Invest in the Future</span>
+              </a>
               
               <div className="relative inline-block mb-6 px-8 py-6 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary/30">
                 <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight drop-shadow-[0_0_30px_rgba(0,255,255,0.3)]">
