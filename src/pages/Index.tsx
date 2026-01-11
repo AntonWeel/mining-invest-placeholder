@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import Counter from '@/components/Counter';
+import MatrixBackground from '@/components/MatrixBackground';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -177,17 +178,18 @@ const Index = () => {
                 {equipment.map((item, index) => (
                   <Card 
                     key={index}
-                    className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md overflow-hidden"
+                    className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md overflow-hidden relative"
                   >
-                    <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden bg-muted/50">
+                    <MatrixBackground />
+                    <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden bg-muted/50 z-10">
                       <img 
                         src={item.image} 
                         alt={item.name}
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                       />
                     </div>
-                    <h3 className="font-heading text-xl font-semibold mb-4 text-center">{item.name}</h3>
-                    <div className="space-y-3">
+                    <h3 className="font-heading text-xl font-semibold mb-4 text-center relative z-10">{item.name}</h3>
+                    <div className="space-y-3 relative z-10">
                       <div className="flex justify-between items-center pb-2 border-b border-border">
                         <span className="text-muted-foreground">Hashrate</span>
                         <span className="font-semibold text-primary">{item.hashrate}</span>
