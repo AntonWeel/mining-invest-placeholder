@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import Counter from '@/components/Counter';
 import MatrixBackground from '@/components/MatrixBackground';
+import ServerGlow from '@/components/ServerGlow';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -79,20 +80,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 animate-gradient-shift bg-[length:200%_200%]" />
-        {!isMobile && (
-          <div 
-            className="fixed inset-0 opacity-50 brightness-125"
-            style={{
-              backgroundImage: 'url(https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/0d74685c-e740-4220-9538-533abcc5d689.jpg)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundAttachment: 'fixed',
-              willChange: 'transform'
-            }}
-          />
-        )}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
+        <ServerGlow />
         
         <div className="relative">
           <section className="min-h-screen flex items-center justify-center px-4 py-20">
