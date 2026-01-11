@@ -208,7 +208,7 @@ const Index = () => {
                     key={index}
                     className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md overflow-hidden relative"
                   >
-                    {!isMobile && <MatrixBackground />}
+                    <MatrixBackground />
                     <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden bg-muted/50 z-10">
                       <img 
                         src={item.image} 
