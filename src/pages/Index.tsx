@@ -161,9 +161,12 @@ const Index = () => {
               </div>
               
               <div className="text-center mb-16">
-                <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-                  Technology & Equipment
-                </h2>
+                <div className="flex items-center justify-center gap-4 mb-4">
+                  <Icon name="Fan" size={48} className="text-primary animate-spin" style={{ animationDuration: '2s' }} />
+                  <h2 className="font-heading text-4xl md:text-5xl font-bold">
+                    Technology & Equipment
+                  </h2>
+                </div>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                   Using cutting-edge equipment with optimal performance-to-efficiency ratio
                 </p>
