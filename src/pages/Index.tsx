@@ -207,7 +207,7 @@ const Index = () => {
               <div className="mt-16 text-center">
                 <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30 shadow-lg">
                   <h3 className="font-heading text-3xl font-bold mb-4">
-                    Ready to Join?
+                    Want to Join Our Project?
                   </h3>
                   <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                     Start investing in mining operations today and receive stable returns
