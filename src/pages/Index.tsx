@@ -88,9 +88,11 @@ const Index = () => {
                 <span className="text-sm font-medium text-primary">Invest in the Future</span>
               </div>
               
-              <h1 className="font-heading text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight drop-shadow-[0_0_30px_rgba(0,255,255,0.3)]">
-                Next-Generation <br />Mining Operations
-              </h1>
+              <div className="relative inline-block mb-6 px-8 py-6 bg-black/60 backdrop-blur-sm rounded-3xl border border-primary/30">
+                <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight drop-shadow-[0_0_30px_rgba(0,255,255,0.3)]">
+                  Next-Generation <br />Mining Operations
+                </h1>
+              </div>
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
                 Professional cryptocurrency mining infrastructure with guaranteed returns
