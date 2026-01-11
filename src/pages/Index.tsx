@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import Counter from '@/components/Counter';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -155,6 +156,10 @@ const Index = () => {
 
           <section className="py-20 px-4">
             <div className="max-w-6xl mx-auto">
+              <div className="mb-16">
+                <Counter />
+              </div>
+              
               <div className="text-center mb-16">
                 <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
                   Technology & Equipment
