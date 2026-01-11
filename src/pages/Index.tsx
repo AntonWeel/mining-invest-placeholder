@@ -68,6 +68,15 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 animate-gradient-shift bg-[length:200%_200%]" />
+        <div 
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: 'url(https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/ecf77343-fb5d-4008-87ad-1fcb2bcbec70.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
         
         <div className="relative">
           <section className="min-h-screen flex items-center justify-center px-4 py-20">
