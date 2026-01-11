@@ -123,7 +123,12 @@ const Index = () => {
                     <Icon name="ArrowRight" className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/10">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/10"
+                  onClick={() => document.getElementById('join-section')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Learn More
                 </Button>
               </div>
@@ -242,7 +247,7 @@ const Index = () => {
                 ))}
               </div>
               
-              <div className="mt-16 text-center">
+              <div id="join-section" className="mt-16 text-center">
                 <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30 shadow-lg">
                   <div className="mb-6 flex justify-center">
                     <BitcoinHashrate />
