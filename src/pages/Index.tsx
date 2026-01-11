@@ -23,22 +23,26 @@ const Index = () => {
     {
       icon: 'Server',
       title: 'Professional Equipment',
-      description: 'Latest generation ASIC miners with maximum efficiency'
+      description: 'Latest generation ASIC miners with maximum efficiency',
+      image: 'https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/706ea9f2-4d7d-40a5-abfd-79e460ef19ef.jpg'
     },
     {
       icon: 'Shield',
       title: 'Reliability & Security',
-      description: 'Protected infrastructure with redundant power and cooling systems'
+      description: 'Protected infrastructure with redundant power and cooling systems',
+      image: 'https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/bac40e44-b61c-4850-a6e2-66b0256288c1.jpg'
     },
     {
       icon: 'DollarSign',
       title: 'Transparent Economics',
-      description: 'Detailed reporting and predictable profitability'
+      description: 'Detailed reporting and predictable profitability',
+      image: 'https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/d3d49397-8612-4059-a841-21a1280d69d2.jpg'
     },
     {
       icon: 'Headphones',
       title: 'Technical Support',
-      description: 'Expert team ensures uninterrupted operations'
+      description: 'Expert team ensures uninterrupted operations',
+      image: 'https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/39d4cfc7-274e-41c0-ad1d-18159dc92bb9.jpg'
     }
   ];
 
@@ -156,10 +160,17 @@ const Index = () => {
                 {advantages.map((advantage, index) => (
                   <Card 
                     key={index}
-                    className="p-8 bg-card border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105 group shadow-sm hover:shadow-md"
+                    className="p-8 bg-card border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105 group shadow-sm hover:shadow-md overflow-hidden"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                      <Icon name={advantage.icon as any} className="w-7 h-7 text-primary" />
+                    <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden">
+                      <img 
+                        src={advantage.image} 
+                        alt={advantage.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute top-4 left-4 w-14 h-14 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                        <Icon name={advantage.icon as any} className="w-7 h-7 text-primary" />
+                      </div>
                     </div>
                     <h3 className="font-heading text-2xl font-semibold mb-3">{advantage.title}</h3>
                     <p className="text-muted-foreground">{advantage.description}</p>
