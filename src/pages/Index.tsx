@@ -94,9 +94,11 @@ const Index = () => {
                 </h1>
               </div>
               
-              <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-                Professional cryptocurrency mining infrastructure with guaranteed returns
-              </p>
+              <div className="inline-block px-6 py-3 bg-black/50 backdrop-blur-sm rounded-2xl border border-primary/20 mb-12">
+                <p className="text-xl md:text-2xl text-white">
+                  Professional cryptocurrency mining infrastructure with guaranteed returns
+                </p>
+              </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
                 <Button 
@@ -133,12 +135,16 @@ const Index = () => {
           <section className="py-20 px-4 bg-muted/30">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-                  About the Project
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  We've built modern infrastructure for cryptocurrency mining focused on reliability, efficiency and transparency
-                </p>
+                <div className="inline-block px-8 py-4 bg-black/50 backdrop-blur-sm rounded-2xl border border-primary/20 mb-4">
+                  <h2 className="font-heading text-4xl md:text-5xl font-bold">
+                    About the Project
+                  </h2>
+                </div>
+                <div className="inline-block px-6 py-3 bg-black/50 backdrop-blur-sm rounded-2xl border border-primary/20 mt-4">
+                  <p className="text-xl text-white max-w-3xl">
+                    We've built modern infrastructure for cryptocurrency mining focused on reliability, efficiency and transparency
+                  </p>
+                </div>
               </div>
               
               <div className="grid md:grid-cols-2 gap-6">
@@ -165,15 +171,19 @@ const Index = () => {
               </div>
               
               <div className="text-center mb-16">
-                <div className="flex items-center justify-center gap-4 mb-4">
-                  <Icon name="Fan" size={48} className="text-primary animate-spin" style={{ animationDuration: '2s' }} />
-                  <h2 className="font-heading text-4xl md:text-5xl font-bold">
-                    Technology & Equipment
-                  </h2>
+                <div className="inline-block px-8 py-4 bg-black/50 backdrop-blur-sm rounded-2xl border border-primary/20 mb-4">
+                  <div className="flex items-center justify-center gap-4">
+                    <Icon name="Fan" size={48} className="text-primary animate-spin" style={{ animationDuration: '2s' }} />
+                    <h2 className="font-heading text-4xl md:text-5xl font-bold">
+                      Technology & Equipment
+                    </h2>
+                  </div>
                 </div>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Using cutting-edge equipment with optimal performance-to-efficiency ratio
-                </p>
+                <div className="inline-block px-6 py-3 bg-black/50 backdrop-blur-sm rounded-2xl border border-primary/20 mt-4">
+                  <p className="text-xl text-white max-w-3xl">
+                    Using cutting-edge equipment with optimal performance-to-efficiency ratio
+                  </p>
+                </div>
               </div>
               
               <div className="grid md:grid-cols-3 gap-6">
