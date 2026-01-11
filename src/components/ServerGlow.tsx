@@ -35,16 +35,16 @@ const ServerGlow = () => {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
+        vx: (Math.random() - 0.5) * 2,
+        vy: (Math.random() - 0.5) * 2,
         size: (Math.random() * 3 + 1) / 5,
-        alpha: Math.random() * 0.5 + 0.2,
+        alpha: Math.random() * 0.7 + 0.5,
         color: Math.random() > 0.5 ? '124, 58, 237' : '6, 182, 212'
       });
     }
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.02)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle, index) => {
@@ -104,7 +104,7 @@ const ServerGlow = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.85 }}
     />
   );
 };
