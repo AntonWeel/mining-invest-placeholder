@@ -2,58 +2,85 @@ import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
+interface CryptoData {
+  price: number;
+  change24h: number;
+}
+
 const Counter = () => {
-  const [price, setPrice] = useState<number | null>(null);
-  const [change24h, setChange24h] = useState<number>(0);
+  const [bitcoin, setBitcoin] = useState<CryptoData | null>(null);
+  const [ethereum, setEthereum] = useState<CryptoData | null>(null);
+  const [dogecoin, setDogecoin] = useState<CryptoData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchBitcoinPrice = async () => {
+    const fetchCryptoPrices = async () => {
       try {
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,dogecoin&vs_currencies=usd&include_24hr_change=true');
         const data = await response.json();
-        setPrice(data.bitcoin.usd);
-        setChange24h(data.bitcoin.usd_24h_change);
+        
+        setBitcoin({
+          price: data.bitcoin.usd,
+          change24h: data.bitcoin.usd_24h_change
+        });
+        setEthereum({
+          price: data.ethereum.usd,
+          change24h: data.ethereum.usd_24h_change
+        });
+        setDogecoin({
+          price: data.dogecoin.usd,
+          change24h: data.dogecoin.usd_24h_change
+        });
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching Bitcoin price:', error);
+        console.error('Error fetching crypto prices:', error);
         setLoading(false);
       }
     };
 
-    fetchBitcoinPrice();
-    const interval = setInterval(fetchBitcoinPrice, 30000);
+    fetchCryptoPrices();
+    const interval = setInterval(fetchCryptoPrices, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <Card className="p-8 bg-card border-primary/20 max-w-md mx-auto">
-      <div className="text-center space-y-6">
-        <div className="flex items-center justify-center gap-3">
-          <Icon name="Bitcoin" size={32} className="text-orange-500" />
-          <h3 className="font-heading text-2xl font-semibold">Bitcoin</h3>
+  const CryptoCard = ({ name, icon, data, iconColor }: { name: string; icon: string; data: CryptoData | null; iconColor: string }) => (
+    <Card className="p-6 bg-card border-primary/20">
+      <div className="text-center space-y-4">
+        <div className="flex items-center justify-center gap-2">
+          <Icon name={icon as any} size={24} className={iconColor} />
+          <h3 className="font-heading text-xl font-semibold">{name}</h3>
         </div>
         
-        {loading ? (
-          <div className="text-2xl text-muted-foreground">Загрузка...</div>
+        {loading || !data ? (
+          <div className="text-lg text-muted-foreground">Загрузка...</div>
         ) : (
           <>
-            <div className="text-5xl font-bold text-primary">
-              ${price?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            <div className="text-3xl font-bold text-primary">
+              ${data.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 6 })}
             </div>
 
-            <div className={`flex items-center justify-center gap-2 text-lg font-semibold ${
-              change24h >= 0 ? 'text-green-500' : 'text-red-500'
+            <div className={`flex items-center justify-center gap-2 text-sm font-semibold ${
+              data.change24h >= 0 ? 'text-green-500' : 'text-red-500'
             }`}>
-              <Icon name={change24h >= 0 ? 'TrendingUp' : 'TrendingDown'} size={20} />
-              <span>{change24h >= 0 ? '+' : ''}{change24h.toFixed(2)}%</span>
-              <span className="text-sm text-muted-foreground font-normal">за 24ч</span>
+              <Icon name={data.change24h >= 0 ? 'TrendingUp' : 'TrendingDown'} size={16} />
+              <span>{data.change24h >= 0 ? '+' : ''}{data.change24h.toFixed(2)}%</span>
             </div>
           </>
         )}
       </div>
     </Card>
+  );
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <CryptoCard name="Bitcoin" icon="Bitcoin" data={bitcoin} iconColor="text-orange-500" />
+        <CryptoCard name="Ethereum" icon="Sparkles" data={ethereum} iconColor="text-purple-500" />
+        <CryptoCard name="Dogecoin" icon="Dog" data={dogecoin} iconColor="text-yellow-500" />
+      </div>
+      <p className="text-center text-sm text-muted-foreground mt-4">Обновление каждые 5 секунд</p>
+    </div>
   );
 };
 
