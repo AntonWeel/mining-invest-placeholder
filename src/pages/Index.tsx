@@ -5,6 +5,7 @@ import Icon from '@/components/ui/icon';
 import Counter from '@/components/Counter';
 import MatrixBackground from '@/components/MatrixBackground';
 import ServerGlow from '@/components/ServerGlow';
+import BitcoinHashrate from '@/components/BitcoinHashrate';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -239,6 +240,9 @@ const Index = () => {
               
               <div className="mt-16 text-center">
                 <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30 shadow-lg">
+                  <div className="mb-6 flex justify-center">
+                    <BitcoinHashrate />
+                  </div>
                   <h3 className="font-heading text-3xl font-bold mb-4">
                     Want to Join Our Project?
                   </h3>
