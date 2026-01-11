@@ -37,7 +37,7 @@ const ServerGlow = () => {
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 3 + 1,
+        size: (Math.random() * 3 + 1) / 5,
         alpha: Math.random() * 0.5 + 0.2,
         color: Math.random() > 0.5 ? '124, 58, 237' : '6, 182, 212'
       });
@@ -60,7 +60,7 @@ const ServerGlow = () => {
           0,
           particle.x,
           particle.y,
-          particle.size * 20
+          particle.size * 4
         );
 
         gradient.addColorStop(0, `rgba(${particle.color}, ${particle.alpha})`);
