@@ -198,4 +198,18 @@
   .stat-card-3 {
     animation: stat-pulse 4s ease-in-out infinite 3s;
   }
+
+  @keyframes image-flash {
+    0%,
+    100% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.4) saturate(1.3);
+    }
+  }
+
+  .equipment-image {
+    animation: image-flash 3s ease-in-out infinite;
+  }
 }

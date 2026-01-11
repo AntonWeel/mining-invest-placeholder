@@ -227,7 +227,7 @@ const Index = () => {
                         alt={item.name}
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300 equipment-image"
                       />
                     </div>
                     <h3 className="font-heading text-xl font-semibold mb-4 text-center relative z-10">{item.name}</h3>
