@@ -191,16 +191,16 @@ const Index = () => {
                     <h3 className="font-heading text-xl font-semibold mb-4 text-center relative z-10">{item.name}</h3>
                     <div className="space-y-3 relative z-10">
                       <div className="flex justify-between items-center pb-2 border-b border-border">
-                        <span className="text-muted-foreground">Hashrate</span>
-                        <span className="font-semibold text-primary">{item.hashrate}</span>
+                        <span className="text-white">Hashrate</span>
+                        <span className="font-semibold text-white">{item.hashrate}</span>
                       </div>
                       <div className="flex justify-between items-center pb-2 border-b border-border">
-                        <span className="text-muted-foreground">Power</span>
-                        <span className="font-semibold">{item.power}</span>
+                        <span className="text-white">Power</span>
+                        <span className="font-semibold text-white">{item.power}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-muted-foreground">Efficiency</span>
-                        <span className="font-semibold text-secondary">{item.efficiency}</span>
+                        <span className="text-white">Efficiency</span>
+                        <span className="font-semibold text-white">{item.efficiency}</span>
                       </div>
                     </div>
                   </Card>
