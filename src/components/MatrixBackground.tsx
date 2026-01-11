@@ -22,7 +22,7 @@ const MatrixBackground = () => {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = 'rgba(0, 255, 255, 0.5)';
+      ctx.fillStyle = 'rgba(0, 255, 255, 0.8)';
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -44,7 +44,7 @@ const MatrixBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full opacity-20"
+      className="absolute inset-0 w-full h-full opacity-50"
     />
   );
 };
