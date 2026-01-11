@@ -88,7 +88,7 @@ const Index = () => {
                 <span className="text-sm font-medium text-primary">Invest in the Future</span>
               </div>
               
-              <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
+              <h1 className="font-heading text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight drop-shadow-[0_0_30px_rgba(0,255,255,0.3)]">
                 Next-Generation <br />Mining Operations
               </h1>
               
