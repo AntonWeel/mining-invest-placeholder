@@ -8,6 +8,7 @@ import ServerGlow from '@/components/ServerGlow';
 import BitcoinHashrate from '@/components/BitcoinHashrate';
 import PulsingChart from '@/components/PulsingChart';
 import HashrateChart from '@/components/HashrateChart';
+import StarField from '@/components/StarField';
 
 const StatCard = ({ stat, index, isVisible }: { stat: any; index: number; isVisible: boolean }) => {
   const [count, setCount] = useState(0);
@@ -353,6 +354,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
+      <StarField />
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
         <ServerGlow />
