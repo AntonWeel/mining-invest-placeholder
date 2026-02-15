@@ -212,4 +212,21 @@
   .equipment-image {
     animation: image-flash 3s ease-in-out infinite;
   }
+
+  @keyframes neon-text-glow {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.8))
+        drop-shadow(0 0 20px rgba(6, 182, 212, 0.6));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px rgba(124, 58, 237, 1))
+        drop-shadow(0 0 40px rgba(6, 182, 212, 0.8))
+        drop-shadow(0 0 60px rgba(124, 58, 237, 0.6));
+    }
+  }
+
+  .neon-text-glow {
+    animation: neon-text-glow 2s ease-in-out infinite;
+  }
 }
