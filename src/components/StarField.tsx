@@ -25,6 +25,24 @@ const StarField = () => {
       hasTrail: boolean;
     }
 
+    interface Nebula {
+      x: number;
+      y: number;
+      radius: number;
+      color: string;
+      opacity: number;
+      pulsePhase: number;
+    }
+
+    interface Flash {
+      x: number;
+      y: number;
+      radius: number;
+      maxRadius: number;
+      opacity: number;
+      expanding: boolean;
+    }
+
     const stars: Star[] = [];
     const starCount = 350;
 
@@ -43,6 +61,20 @@ const StarField = () => {
       });
     }
 
+    const nebulas: Nebula[] = [];
+    for (let i = 0; i < 5; i++) {
+      nebulas.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 150 + 100,
+        color: Math.random() > 0.5 ? '124, 58, 237' : '6, 182, 212',
+        opacity: Math.random() * 0.15 + 0.05,
+        pulsePhase: Math.random() * Math.PI * 2,
+      });
+    }
+
+    const flashes: Flash[] = [];
+
     let animationId: number;
     let time = 0;
 
@@ -51,6 +83,60 @@ const StarField = () => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       time += 0.01;
+
+      nebulas.forEach((nebula) => {
+        const pulse = Math.sin(time * 0.5 + nebula.pulsePhase) * 0.3 + 0.7;
+        const gradient = ctx.createRadialGradient(
+          nebula.x, nebula.y, 0,
+          nebula.x, nebula.y, nebula.radius
+        );
+        gradient.addColorStop(0, `rgba(${nebula.color}, ${nebula.opacity * pulse})`);
+        gradient.addColorStop(0.5, `rgba(${nebula.color}, ${nebula.opacity * 0.5 * pulse})`);
+        gradient.addColorStop(1, `rgba(${nebula.color}, 0)`);
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(
+          nebula.x - nebula.radius,
+          nebula.y - nebula.radius,
+          nebula.radius * 2,
+          nebula.radius * 2
+        );
+      });
+
+      if (Math.random() > 0.98) {
+        flashes.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: 0,
+          maxRadius: Math.random() * 100 + 50,
+          opacity: 0.6,
+          expanding: true,
+        });
+      }
+
+      flashes.forEach((flash, index) => {
+        if (flash.expanding) {
+          flash.radius += 2;
+          flash.opacity -= 0.015;
+          if (flash.radius >= flash.maxRadius || flash.opacity <= 0) {
+            flashes.splice(index, 1);
+            return;
+          }
+        }
+
+        const gradient = ctx.createRadialGradient(
+          flash.x, flash.y, 0,
+          flash.x, flash.y, flash.radius
+        );
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${flash.opacity})`);
+        gradient.addColorStop(0.3, `rgba(124, 58, 237, ${flash.opacity * 0.5})`);
+        gradient.addColorStop(1, `rgba(6, 182, 212, 0)`);
+        
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(flash.x, flash.y, flash.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
 
       stars.forEach((star) => {
         if (star.hasTrail) {
