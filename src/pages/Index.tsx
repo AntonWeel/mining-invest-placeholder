@@ -335,10 +335,10 @@ const Index = () => {
           <section className="py-20 px-4 bg-muted/30">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
+                <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]" style={{ textShadow: '0 0 20px rgba(124, 58, 237, 0.5), 0 0 40px rgba(6, 182, 212, 0.3)' }}>
                   About the Project
                 </h2>
-                <p className="text-xl text-foreground/90 max-w-3xl mx-auto">
+                <p className="text-xl text-foreground/90 max-w-3xl mx-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-primary/30">
                   We've built modern infrastructure for cryptocurrency mining focused on reliability, efficiency and transparency
                 </p>
               </div>
@@ -398,10 +398,10 @@ const Index = () => {
                   <div className="mb-6 flex justify-center">
                     <BitcoinHashrate />
                   </div>
-                  <h3 className="font-heading text-3xl font-bold mb-4">
+                  <h3 className="font-heading text-3xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
                     Want to Join Our Project?
                   </h3>
-                  <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  <p className="text-xl text-foreground/90 mb-8 max-w-2xl mx-auto">
                     Start investing in mining operations today and receive stable returns
                   </p>
                   <Button 
