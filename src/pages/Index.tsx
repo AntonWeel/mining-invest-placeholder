@@ -376,19 +376,15 @@ const Index = () => {
               </div>
               
               <div className="text-center mb-16">
-                <div className="inline-block px-8 py-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-primary/20 mb-4">
-                  <div className="flex items-center justify-center gap-4">
-                    <Icon name="Fan" size={48} className="text-primary animate-spin" style={{ animationDuration: '2s' }} />
-                    <h2 className="font-heading text-4xl md:text-5xl font-bold">
-                      Technology & Equipment
-                    </h2>
-                  </div>
+                <div className="flex items-center justify-center gap-4 mb-6">
+                  <Icon name="Fan" size={48} className="text-primary animate-spin" style={{ animationDuration: '2s' }} />
+                  <h2 className="font-heading text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]" style={{ textShadow: '0 0 20px rgba(124, 58, 237, 0.5), 0 0 40px rgba(6, 182, 212, 0.3)' }}>
+                    Technology & Equipment
+                  </h2>
                 </div>
-                <div className="inline-block px-6 py-3 bg-white/80 backdrop-blur-sm rounded-2xl border border-primary/20 mt-4">
-                  <p className="text-xl text-foreground max-w-3xl">
-                    Using cutting-edge equipment with optimal performance-to-efficiency ratio
-                  </p>
-                </div>
+                <p className="text-xl text-foreground/90 max-w-3xl mx-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-primary/30">
+                  Using cutting-edge equipment with optimal performance-to-efficiency ratio
+                </p>
               </div>
               
               <div className="grid md:grid-cols-3 gap-6">
