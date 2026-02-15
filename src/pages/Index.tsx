@@ -377,7 +377,7 @@ const Index = () => {
                 <div className="absolute inset-0 opacity-20 overflow-hidden">
                   {isVisible && <PulsingChart />}
                 </div>
-                <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight relative z-10">
+                <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-secondary via-cyan-400 to-secondary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight relative z-10">
                   Next-Generation<br />Mining
                 </h1>
               </div>
@@ -423,7 +423,7 @@ const Index = () => {
           <section className="py-20 px-4 bg-muted/30">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]" style={{ textShadow: '0 0 20px rgba(124, 58, 237, 0.5), 0 0 40px rgba(6, 182, 212, 0.3)' }}>
+                <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-secondary to-cyan-400 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]" style={{ textShadow: '0 0 20px rgba(6, 182, 212, 0.5), 0 0 40px rgba(34, 211, 238, 0.3)' }}>
                   About the Project
                 </h2>
                 <p className="text-xl text-foreground/90 max-w-3xl mx-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-primary/30">
@@ -447,8 +447,8 @@ const Index = () => {
               
               <div className="text-center mb-16">
                 <div className="flex items-center justify-center gap-4 mb-6">
-                  <Icon name="Fan" size={48} className="text-primary animate-spin" style={{ animationDuration: '2s' }} />
-                  <h2 className="font-heading text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]" style={{ textShadow: '0 0 20px rgba(124, 58, 237, 0.5), 0 0 40px rgba(6, 182, 212, 0.3)' }}>
+                  <Icon name="Fan" size={48} className="text-cyan-400 animate-spin" style={{ animationDuration: '2s' }} />
+                  <h2 className="font-heading text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-300 via-secondary to-cyan-300 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]" style={{ textShadow: '0 0 20px rgba(6, 182, 212, 0.6), 0 0 40px rgba(34, 211, 238, 0.4)' }}>
                     Technology & Equipment
                   </h2>
                 </div>
@@ -472,7 +472,7 @@ const Index = () => {
                     <div className="mb-6 flex justify-center">
                       <BitcoinHashrate />
                     </div>
-                    <h3 className="font-heading text-3xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
+                    <h3 className="font-heading text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-300 via-cyan-400 to-secondary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
                       Want to Join Our Project?
                     </h3>
                     <p className="text-xl text-foreground/90 mb-8 max-w-2xl mx-auto">
