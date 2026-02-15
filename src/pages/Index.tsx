@@ -58,6 +58,7 @@ const StatCard = ({ stat, index, isVisible }: { stat: any; index: number; isVisi
 
 const AdvantageCard = ({ advantage, index }: { advantage: any; index: number }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -77,6 +78,22 @@ const AdvantageCard = ({ advantage, index }: { advantage: any; index: number }) 
     };
   }, [index]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById(`advantage-${index}`);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+        setParallaxOffset(scrollProgress * 50 - 25);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [index]);
+
   return (
     <Card 
       id={`advantage-${index}`}
@@ -92,6 +109,7 @@ const AdvantageCard = ({ advantage, index }: { advantage: any; index: number }) 
           loading="lazy"
           decoding="async"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          style={{ transform: `translateY(${parallaxOffset}px)` }}
         />
         <div className="absolute top-4 left-4 w-14 h-14 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
           <Icon name={advantage.icon} className="w-7 h-7 text-primary" />
@@ -109,6 +127,7 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
   const [power, setPower] = useState(0);
   const [efficiency, setEfficiency] = useState(0);
   const [uptime, setUptime] = useState({ days: 0, hours: 0, minutes: 0 });
+  const [parallaxOffset, setParallaxOffset] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -126,6 +145,22 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
     return () => {
       if (element) observer.unobserve(element);
     };
+  }, [index]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById(`equipment-${index}`);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+        setParallaxOffset(scrollProgress * 40 - 20);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [index]);
 
   useEffect(() => {
@@ -213,6 +248,7 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
           loading="lazy"
           decoding="async"
           className="w-full h-full object-cover hover:scale-110 transition-transform duration-300 equipment-image"
+          style={{ transform: `translateY(${parallaxOffset}px)` }}
         />
       </div>
       <h3 className="font-heading text-xl font-semibold mb-4 text-center relative z-10">{item.name}</h3>
