@@ -8,6 +8,53 @@ import ServerGlow from '@/components/ServerGlow';
 import BitcoinHashrate from '@/components/BitcoinHashrate';
 import PulsingChart from '@/components/PulsingChart';
 
+const StatCard = ({ stat, index, isVisible }: { stat: any; index: number; isVisible: boolean }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    const duration = 2000;
+    const steps = 60;
+    const increment = stat.targetNumber / steps;
+    const stepDuration = duration / steps;
+    
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= stat.targetNumber) {
+        setCount(stat.targetNumber);
+        clearInterval(timer);
+      } else {
+        setCount(current);
+      }
+    }, stepDuration);
+    
+    return () => clearInterval(timer);
+  }, [isVisible, stat.targetNumber]);
+
+  const formatValue = () => {
+    if (stat.label === 'Uptime') {
+      return `${count.toFixed(1)}%`;
+    } else if (stat.label === 'Monitoring') {
+      return `${Math.floor(count)}/7`;
+    } else {
+      return `${Math.floor(count)}+`;
+    }
+  };
+
+  return (
+    <div 
+      className={`p-6 rounded-2xl bg-card border border-primary/20 shadow-sm stat-card-${index} ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+      style={{ animationDelay: `${index * 100}ms` }}
+    >
+      <Icon name={stat.icon} className={`w-8 h-8 ${stat.color} mx-auto mb-3 animate-float`} />
+      <div className={`text-3xl font-bold ${stat.color} mb-1`}>{formatValue()}</div>
+      <div className="text-sm text-muted-foreground">{stat.label}</div>
+    </div>
+  );
+};
+
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -22,10 +69,10 @@ const Index = () => {
   }, []);
 
   const stats = [
-    { value: '500+', label: 'TH/s', icon: 'Zap' },
-    { value: '99.9%', label: 'Uptime', icon: 'TrendingUp' },
-    { value: '24/7', label: 'Monitoring', icon: 'Activity' },
-    { value: '50+', label: 'Devices', icon: 'Cpu' }
+    { value: '500+', label: 'TH/s', icon: 'Zap', color: 'text-yellow-400', targetNumber: 500 },
+    { value: '99.9%', label: 'Uptime', icon: 'TrendingUp', color: 'text-green-400', targetNumber: 99.9 },
+    { value: '24/7', label: 'Monitoring', icon: 'Activity', color: 'text-blue-400', targetNumber: 24 },
+    { value: '50+', label: 'Devices', icon: 'Cpu', color: 'text-purple-400', targetNumber: 50 }
   ];
 
   const advantages = [
@@ -135,15 +182,12 @@ const Index = () => {
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                 {stats.map((stat, index) => (
-                  <div 
+                  <StatCard 
                     key={index}
-                    className={`p-6 rounded-2xl bg-card border border-primary/20 shadow-sm stat-card-${index} ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <Icon name={stat.icon as any} className="w-8 h-8 text-primary mx-auto mb-3 animate-float" />
-                    <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
-                  </div>
+                    stat={stat}
+                    index={index}
+                    isVisible={isVisible}
+                  />
                 ))}
               </div>
             </div>
