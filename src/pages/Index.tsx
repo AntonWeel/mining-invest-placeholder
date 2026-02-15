@@ -56,6 +56,53 @@ const StatCard = ({ stat, index, isVisible }: { stat: any; index: number; isVisi
   );
 };
 
+const AdvantageCard = ({ advantage, index }: { advantage: any; index: number }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById(`advantage-${index}`);
+    if (element) observer.observe(element);
+
+    return () => {
+      if (element) observer.unobserve(element);
+    };
+  }, [index]);
+
+  return (
+    <Card 
+      id={`advantage-${index}`}
+      className={`p-8 bg-card border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-105 group shadow-sm hover:shadow-md overflow-hidden ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
+    >
+      <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden">
+        <img 
+          src={advantage.image} 
+          alt={advantage.title}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+        />
+        <div className="absolute top-4 left-4 w-14 h-14 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
+          <Icon name={advantage.icon} className="w-7 h-7 text-primary" />
+        </div>
+      </div>
+      <h3 className="font-heading text-2xl font-semibold mb-3">{advantage.title}</h3>
+      <p className="text-muted-foreground">{advantage.description}</p>
+    </Card>
+  );
+};
+
 const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hashrate, setHashrate] = useState(0);
@@ -149,7 +196,10 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
   return (
     <Card 
       id={`equipment-${index}`}
-      className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md overflow-hidden relative"
+      className={`p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-500 hover:scale-105 shadow-sm hover:shadow-md overflow-hidden relative ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
     >
       <MatrixBackground />
       <div className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-green-500/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-green-500/50">
@@ -345,25 +395,7 @@ const Index = () => {
               
               <div className="grid md:grid-cols-2 gap-6">
                 {advantages.map((advantage, index) => (
-                  <Card 
-                    key={index}
-                    className="p-8 bg-card border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105 group shadow-sm hover:shadow-md overflow-hidden"
-                  >
-                    <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden">
-                      <img 
-                        src={advantage.image} 
-                        alt={advantage.title}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute top-4 left-4 w-14 h-14 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
-                        <Icon name={advantage.icon as any} className="w-7 h-7 text-primary" />
-                      </div>
-                    </div>
-                    <h3 className="font-heading text-2xl font-semibold mb-3">{advantage.title}</h3>
-                    <p className="text-muted-foreground">{advantage.description}</p>
-                  </Card>
+                  <AdvantageCard key={index} advantage={advantage} index={index} />
                 ))}
               </div>
             </div>
