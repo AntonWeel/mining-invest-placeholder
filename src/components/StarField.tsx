@@ -43,6 +43,15 @@ const StarField = () => {
       expanding: boolean;
     }
 
+    interface Dust {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      opacity: number;
+    }
+
     const stars: Star[] = [];
     const starCount = 350;
 
@@ -74,6 +83,19 @@ const StarField = () => {
     }
 
     const flashes: Flash[] = [];
+
+    const dust: Dust[] = [];
+    const dustCount = 100;
+    for (let i = 0; i < dustCount; i++) {
+      dust.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: Math.random() * 0.5 + 0.2,
+        size: Math.random() * 1.5 + 0.3,
+        opacity: Math.random() * 0.3 + 0.1,
+      });
+    }
 
     let animationId: number;
     let time = 0;
@@ -137,6 +159,41 @@ const StarField = () => {
         ctx.arc(flash.x, flash.y, flash.radius, 0, Math.PI * 2);
         ctx.fill();
       });
+
+      dust.forEach((particle) => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        if (particle.x < 0) particle.x = canvas.width;
+        if (particle.x > canvas.width) particle.x = 0;
+        if (particle.y > canvas.height) {
+          particle.y = 0;
+          particle.x = Math.random() * canvas.width;
+        }
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(200, 200, 255, ${particle.opacity})`;
+        ctx.fill();
+      });
+
+      for (let i = 0; i < stars.length; i++) {
+        for (let j = i + 1; j < stars.length; j++) {
+          const dx = stars[i].x - stars[j].x;
+          const dy = stars[i].y - stars[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 120 && !stars[i].hasTrail && !stars[j].hasTrail) {
+            const opacity = (1 - distance / 120) * 0.15;
+            ctx.beginPath();
+            ctx.moveTo(stars[i].x, stars[i].y);
+            ctx.lineTo(stars[j].x, stars[j].y);
+            ctx.strokeStyle = `rgba(124, 58, 237, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
 
       stars.forEach((star) => {
         if (star.hasTrail) {
