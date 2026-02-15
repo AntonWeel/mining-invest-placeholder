@@ -55,6 +55,98 @@ const StatCard = ({ stat, index, isVisible }: { stat: any; index: number; isVisi
   );
 };
 
+const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [hashrate, setHashrate] = useState(0);
+  const [power, setPower] = useState(0);
+  const [efficiency, setEfficiency] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const element = document.getElementById(`equipment-${index}`);
+    if (element) observer.observe(element);
+
+    return () => {
+      if (element) observer.unobserve(element);
+    };
+  }, [index]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const animateValue = (setter: (val: number) => void, target: number, decimals = 0) => {
+      const duration = 1500;
+      const steps = 50;
+      const increment = target / steps;
+      const stepDuration = duration / steps;
+
+      let current = 0;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          setter(target);
+          clearInterval(timer);
+        } else {
+          setter(current);
+        }
+      }, stepDuration);
+
+      return timer;
+    };
+
+    const timer1 = animateValue(setHashrate, item.hashrate);
+    const timer2 = animateValue(setPower, item.power);
+    const timer3 = animateValue(setEfficiency, item.efficiency);
+
+    return () => {
+      clearInterval(timer1);
+      clearInterval(timer2);
+      clearInterval(timer3);
+    };
+  }, [isVisible, item]);
+
+  return (
+    <Card 
+      id={`equipment-${index}`}
+      className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md overflow-hidden relative"
+    >
+      <MatrixBackground />
+      <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden bg-muted/50 z-10">
+        <img 
+          src={item.image} 
+          alt={item.name}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300 equipment-image"
+        />
+      </div>
+      <h3 className="font-heading text-xl font-semibold mb-4 text-center relative z-10">{item.name}</h3>
+      <div className="space-y-3 relative z-10">
+        <div className="flex justify-between items-center pb-2 border-b border-border">
+          <span className="text-white">Hashrate</span>
+          <span className="font-semibold text-cyan-400">{Math.floor(hashrate)} TH/s</span>
+        </div>
+        <div className="flex justify-between items-center pb-2 border-b border-border">
+          <span className="text-white">Power</span>
+          <span className="font-semibold text-purple-400">{Math.floor(power)}W</span>
+        </div>
+        <div className="flex justify-between items-center">
+          <span className="text-white">Efficiency</span>
+          <span className="font-semibold text-green-400">{efficiency.toFixed(1)} J/TH</span>
+        </div>
+      </div>
+    </Card>
+  );
+};
+
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -105,23 +197,23 @@ const Index = () => {
   const equipment = [
     {
       name: 'Antminer S19 Pro',
-      hashrate: '110 TH/s',
-      power: '3250W',
-      efficiency: '29.5 J/TH',
+      hashrate: 110,
+      power: 3250,
+      efficiency: 29.5,
       image: 'https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/238b9a60-e14d-45ac-a987-83eee9607c70.jpg'
     },
     {
       name: 'Whatsminer M30S++',
-      hashrate: '112 TH/s',
-      power: '3472W',
-      efficiency: '31 J/TH',
+      hashrate: 112,
+      power: 3472,
+      efficiency: 31,
       image: 'https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/bd5ccd2c-5b7b-4a4e-bafa-2f82f734cb3d.jpg'
     },
     {
       name: 'AvalonMiner 1246',
-      hashrate: '90 TH/s',
-      power: '3420W',
-      efficiency: '38 J/TH',
+      hashrate: 90,
+      power: 3420,
+      efficiency: 38,
       image: 'https://cdn.poehali.dev/projects/2595ec54-28cb-40ee-9568-c873b989d779/files/4793f4f3-b2c3-4115-abbc-05b2ea06aa7c.jpg'
     }
   ];
@@ -258,36 +350,7 @@ const Index = () => {
               
               <div className="grid md:grid-cols-3 gap-6">
                 {equipment.map((item, index) => (
-                  <Card 
-                    key={index}
-                    className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md overflow-hidden relative"
-                  >
-                    <MatrixBackground />
-                    <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden bg-muted/50 z-10">
-                      <img 
-                        src={item.image} 
-                        alt={item.name}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300 equipment-image"
-                      />
-                    </div>
-                    <h3 className="font-heading text-xl font-semibold mb-4 text-center relative z-10">{item.name}</h3>
-                    <div className="space-y-3 relative z-10">
-                      <div className="flex justify-between items-center pb-2 border-b border-border">
-                        <span className="text-white">Hashrate</span>
-                        <span className="font-semibold text-cyan-400">{item.hashrate}</span>
-                      </div>
-                      <div className="flex justify-between items-center pb-2 border-b border-border">
-                        <span className="text-white">Power</span>
-                        <span className="font-semibold text-purple-400">{item.power}</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-white">Efficiency</span>
-                        <span className="font-semibold text-green-400">{item.efficiency}</span>
-                      </div>
-                    </div>
-                  </Card>
+                  <EquipmentCard key={index} item={item} index={index} />
                 ))}
               </div>
               
