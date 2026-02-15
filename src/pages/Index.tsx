@@ -464,27 +464,32 @@ const Index = () => {
               </div>
               
               <div id="join-section" className="mt-16 text-center">
-                <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30 shadow-lg">
-                  <div className="mb-6 flex justify-center">
-                    <BitcoinHashrate />
+                <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30 shadow-lg relative overflow-hidden">
+                  <div className="absolute inset-0 opacity-20 overflow-hidden">
+                    <PulsingChart />
                   </div>
-                  <h3 className="font-heading text-3xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
-                    Want to Join Our Project?
-                  </h3>
-                  <p className="text-xl text-foreground/90 mb-8 max-w-2xl mx-auto">
-                    Start investing in mining operations today and receive stable returns
-                  </p>
-                  <Button 
-                    size="lg" 
-                    className="text-xl px-14 py-8 bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_200%] hover:bg-[position:100%_0] transition-all duration-500 neon-button font-bold tracking-wide border-2 border-primary/50 hover:scale-110 group"
-                    asChild
-                  >
-                    <a href="https://forms.gle/JvG4uViTWvKkMLfn6" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                      <Icon name="Sparkles" className="mr-2 group-hover:rotate-12 transition-transform" size={24} />
-                      Get Your Rewards
-                      <Icon name="Gift" className="ml-2 group-hover:scale-110 transition-transform" size={24} />
-                    </a>
-                  </Button>
+                  <div className="relative z-10">
+                    <div className="mb-6 flex justify-center">
+                      <BitcoinHashrate />
+                    </div>
+                    <h3 className="font-heading text-3xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
+                      Want to Join Our Project?
+                    </h3>
+                    <p className="text-xl text-foreground/90 mb-8 max-w-2xl mx-auto">
+                      Start investing in mining operations today and receive stable returns
+                    </p>
+                    <Button 
+                      size="lg" 
+                      className="text-xl px-14 py-8 bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_200%] hover:bg-[position:100%_0] transition-all duration-500 neon-button font-bold tracking-wide border-2 border-primary/50 hover:scale-110 group"
+                      asChild
+                    >
+                      <a href="https://forms.gle/JvG4uViTWvKkMLfn6" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        <Icon name="Sparkles" className="mr-2 group-hover:rotate-12 transition-transform" size={24} />
+                        Get Your Rewards
+                        <Icon name="Gift" className="ml-2 group-hover:scale-110 transition-transform" size={24} />
+                      </a>
+                    </Button>
+                  </div>
                 </Card>
               </div>
             </div>
