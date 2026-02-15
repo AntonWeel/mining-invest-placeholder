@@ -7,6 +7,7 @@ import MatrixBackground from '@/components/MatrixBackground';
 import ServerGlow from '@/components/ServerGlow';
 import BitcoinHashrate from '@/components/BitcoinHashrate';
 import PulsingChart from '@/components/PulsingChart';
+import HashrateChart from '@/components/HashrateChart';
 
 const StatCard = ({ stat, index, isVisible }: { stat: any; index: number; isVisible: boolean }) => {
   const [count, setCount] = useState(0);
@@ -165,6 +166,9 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
         />
       </div>
       <h3 className="font-heading text-xl font-semibold mb-4 text-center relative z-10">{item.name}</h3>
+      <div className="mb-4 relative z-10">
+        <HashrateChart targetValue={item.hashrate} isVisible={isVisible} color="#06b6d4" />
+      </div>
       <div className="space-y-3 relative z-10">
         <div className="flex justify-between items-center pb-2 border-b border-border">
           <span className="text-white">Hashrate</span>
