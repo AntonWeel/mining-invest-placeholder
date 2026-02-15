@@ -60,6 +60,7 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
   const [hashrate, setHashrate] = useState(0);
   const [power, setPower] = useState(0);
   const [efficiency, setEfficiency] = useState(0);
+  const [uptime, setUptime] = useState({ days: 0, hours: 0, minutes: 0 });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -125,6 +126,25 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
     return () => clearInterval(fluctuateValues);
   }, [isVisible, hashrate, item]);
 
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const startTime = Date.now() - (Math.floor(Math.random() * 30) + 60) * 24 * 60 * 60 * 1000;
+
+    const updateUptime = () => {
+      const elapsed = Date.now() - startTime;
+      const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+      setUptime({ days, hours, minutes });
+    };
+
+    updateUptime();
+    const uptimeTimer = setInterval(updateUptime, 60000);
+
+    return () => clearInterval(uptimeTimer);
+  }, [isVisible]);
+
   return (
     <Card 
       id={`equipment-${index}`}
@@ -154,9 +174,16 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
           <span className="text-white">Power</span>
           <span className="font-semibold text-purple-400 transition-all duration-300">{Math.floor(power)}W</span>
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center pb-2 border-b border-border">
           <span className="text-white">Efficiency</span>
           <span className="font-semibold text-green-400 transition-all duration-300">{efficiency.toFixed(1)} J/TH</span>
+        </div>
+        <div className="flex justify-between items-center pt-2">
+          <span className="text-white flex items-center gap-1">
+            <Icon name="Clock" className="w-4 h-4" />
+            Uptime
+          </span>
+          <span className="font-semibold text-orange-400">{uptime.days}d {uptime.hours}h {uptime.minutes}m</span>
         </div>
       </div>
     </Card>
