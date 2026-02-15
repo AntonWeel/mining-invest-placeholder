@@ -82,7 +82,7 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
   useEffect(() => {
     if (!isVisible) return;
 
-    const animateValue = (setter: (val: number) => void, target: number, decimals = 0) => {
+    const animateValue = (setter: (val: number) => void, target: number) => {
       const duration = 1500;
       const steps = 50;
       const increment = target / steps;
@@ -113,6 +113,18 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
     };
   }, [isVisible, item]);
 
+  useEffect(() => {
+    if (!isVisible || hashrate < item.hashrate) return;
+
+    const fluctuateValues = setInterval(() => {
+      setHashrate(item.hashrate + (Math.random() * 2 - 1) * 0.5);
+      setPower(item.power + (Math.random() * 20 - 10));
+      setEfficiency(item.efficiency + (Math.random() * 0.4 - 0.2));
+    }, 1000 + Math.random() * 1000);
+
+    return () => clearInterval(fluctuateValues);
+  }, [isVisible, hashrate, item]);
+
   return (
     <Card 
       id={`equipment-${index}`}
@@ -132,15 +144,15 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
       <div className="space-y-3 relative z-10">
         <div className="flex justify-between items-center pb-2 border-b border-border">
           <span className="text-white">Hashrate</span>
-          <span className="font-semibold text-cyan-400">{Math.floor(hashrate)} TH/s</span>
+          <span className="font-semibold text-cyan-400 transition-all duration-300">{hashrate.toFixed(1)} TH/s</span>
         </div>
         <div className="flex justify-between items-center pb-2 border-b border-border">
           <span className="text-white">Power</span>
-          <span className="font-semibold text-purple-400">{Math.floor(power)}W</span>
+          <span className="font-semibold text-purple-400 transition-all duration-300">{Math.floor(power)}W</span>
         </div>
         <div className="flex justify-between items-center">
           <span className="text-white">Efficiency</span>
-          <span className="font-semibold text-green-400">{efficiency.toFixed(1)} J/TH</span>
+          <span className="font-semibold text-green-400 transition-all duration-300">{efficiency.toFixed(1)} J/TH</span>
         </div>
       </div>
     </Card>
