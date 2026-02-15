@@ -103,7 +103,7 @@ const Index = () => {
                 <div className="absolute inset-0 opacity-20 overflow-hidden">
                   {isVisible && <PulsingChart />}
                 </div>
-                <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight relative z-10" style={{ textShadow: '0 0 10px rgba(124, 58, 237, 0.9), 0 0 20px rgba(124, 58, 237, 0.9), 0 0 30px rgba(124, 58, 237, 0.7), 0 0 40px rgba(6, 182, 212, 0.9), 0 0 60px rgba(6, 182, 212, 0.7), 0 0 80px rgba(124, 58, 237, 0.6), 0 0 100px rgba(6, 182, 212, 0.5), 0 0 120px rgba(124, 58, 237, 0.4)' }}>
+                <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight relative z-10">
                   Next-Generation<br />Mining
                 </h1>
               </div>
