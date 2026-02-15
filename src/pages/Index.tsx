@@ -131,6 +131,10 @@ const EquipmentCard = ({ item, index }: { item: any; index: number }) => {
       className="p-6 bg-card border-primary/20 hover:border-secondary/60 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md overflow-hidden relative"
     >
       <MatrixBackground />
+      <div className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-green-500/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-green-500/50">
+        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-lg shadow-green-500/50"></div>
+        <span className="text-xs font-semibold text-green-400 uppercase tracking-wider">Online</span>
+      </div>
       <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden bg-muted/50 z-10">
         <img 
           src={item.image} 
