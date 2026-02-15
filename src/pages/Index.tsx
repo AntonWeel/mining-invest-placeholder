@@ -99,20 +99,18 @@ const Index = () => {
                 </a>
               </div>
               
-              <div className="relative inline-block mb-6 px-8 py-6 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary/30">
-                <div className="absolute inset-0 opacity-30 overflow-hidden rounded-3xl">
+              <div className="relative inline-block mb-6">
+                <div className="absolute inset-0 opacity-20 overflow-hidden">
                   {isVisible && <PulsingChart />}
                 </div>
-                <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight relative z-10" style={{ textShadow: '2px 2px 0 rgba(124, 58, 237, 0.3), 4px 4px 0 rgba(124, 58, 237, 0.2), 6px 6px 0 rgba(124, 58, 237, 0.1), 8px 8px 20px rgba(0, 255, 255, 0.3)' }}>
+                <h1 className="font-heading text-6xl md:text-8xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%] tracking-tight leading-tight relative z-10" style={{ textShadow: '2px 2px 0 rgba(124, 58, 237, 0.5), 4px 4px 0 rgba(124, 58, 237, 0.3), 6px 6px 0 rgba(124, 58, 237, 0.2), 8px 8px 30px rgba(0, 255, 255, 0.5), 12px 12px 40px rgba(124, 58, 237, 0.4)' }}>
                   Next-Generation<br />Mining
                 </h1>
               </div>
               
-              <div className="inline-block px-6 py-3 bg-white/80 backdrop-blur-sm rounded-2xl border border-primary/20 mb-12">
-                <p className="text-xl md:text-2xl text-foreground">
-                  Professional cryptocurrency mining infrastructure with guaranteed returns
-                </p>
-              </div>
+              <p className="text-xl md:text-2xl text-foreground/90 mb-12 max-w-3xl mx-auto">
+                Professional cryptocurrency mining infrastructure with guaranteed returns
+              </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
                 <Button 
