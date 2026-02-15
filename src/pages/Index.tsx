@@ -335,16 +335,12 @@ const Index = () => {
           <section className="py-20 px-4 bg-muted/30">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
-                <div className="inline-block px-8 py-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-primary/20 mb-4">
-                  <h2 className="font-heading text-4xl md:text-5xl font-bold">
-                    About the Project
-                  </h2>
-                </div>
-                <div className="inline-block px-6 py-3 bg-white/80 backdrop-blur-sm rounded-2xl border border-primary/20 mt-4">
-                  <p className="text-xl text-foreground max-w-3xl">
-                    We've built modern infrastructure for cryptocurrency mining focused on reliability, efficiency and transparency
-                  </p>
-                </div>
+                <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
+                  About the Project
+                </h2>
+                <p className="text-xl text-foreground/90 max-w-3xl mx-auto">
+                  We've built modern infrastructure for cryptocurrency mining focused on reliability, efficiency and transparency
+                </p>
               </div>
               
               <div className="grid md:grid-cols-2 gap-6">
